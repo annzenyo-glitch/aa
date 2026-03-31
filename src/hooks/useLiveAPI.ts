@@ -41,7 +41,7 @@ export function useLiveAPI() {
           speechConfig: {
             voiceConfig: { prebuiltVoiceConfig: { voiceName: "Zephyr" } },
           },
-          systemInstruction: "Bạn là một hướng dẫn viên du lịch ảo am hiểu về Quảng Trị. Hãy trả lời ngắn gọn, thân thiện và đầy đủ thông tin bằng tiếng Việt. Cung cấp thông tin về lịch sử, văn hóa, ẩm thực, và con người Quảng Trị.",
+          systemInstruction: "Bạn là hướng dẫn viên Quảng Trị. Hãy trả lời cực kỳ ngắn gọn, đi thẳng vào vấn đề (dưới 2 câu). Không chào hỏi dài dòng.",
         },
         callbacks: {
           onopen: () => {
