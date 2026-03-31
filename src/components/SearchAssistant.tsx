@@ -21,7 +21,7 @@ export function SearchAssistant() {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
       const result = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-2.5-flash",
         contents: `Tìm hiểu thông tin về Quảng Trị: ${query}`,
         config: {
           tools: [{ googleSearch: {} }],
@@ -35,9 +35,9 @@ export function SearchAssistant() {
         const extractedUrls = chunks.map(c => c.web?.uri).filter(Boolean) as string[];
         setUrls(Array.from(new Set(extractedUrls)));
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      setResponse("Xin lỗi, đã có lỗi xảy ra khi tìm kiếm.");
+      setResponse(`Xin lỗi, đã có lỗi xảy ra khi tìm kiếm. Chi tiết lỗi: ${err.message || 'Không rõ nguyên nhân'}`);
     } finally {
       setLoading(false);
     }
